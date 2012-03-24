@@ -1,0 +1,48 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label "Project Services:" %> </br>
+    <% for project_service in ProjectService.all %>
+      <%= check_box_tag "project[project_service_ids][]", project_service.id, @project.project_service_ids.include?(project_service.id), :id => dom_id(project_service) %>
+      <%= label_tag dom_id(project_service), project_service.name, :class => "check_box_label" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label "Project Staff:" %></br>
+    <%= hidden_field_tag "project[user_ids][]", nil %>
+    <% for user in User.all %>
+      <%= check_box_tag "project[user_ids][]", user.id, @project.user_ids.include?(user.id), :id => dom_id(user) %>
+      <%= label_tag dom_id(user), user.full_name, :class => "check_box_label" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

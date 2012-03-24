@@ -1,0 +1,38 @@
+<h4>New Requirement</h4>
+
+<%= form_for([@project, @project.requirements.new ]) do |f| %>
+  <div class="field">
+    <%= f.label :name %></br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :detail %></br>
+    <%= f.text_area :detail %>
+  </div>
+  <div class="field">
+    <%= f.label "Requirement Type:" %></br>
+    <% for requirement_type in RequirementType.all %>
+      <%= f.radio_button :requirement_type_id, requirement_type.id %>
+      <%= label_tag dom_id(requirement_type), requirement_type.name, :class => "radio_button_label" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label "Requirement Priority:" %></br>
+    <% for requirement_priority in RequirementPriority.all %>
+      <%= f.radio_button :requirement_priority_id, requirement_priority.id %>
+      <%= label_tag dom_id(requirement_priority), requirement_priority.name, :class => "radio_button_label" %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :initiator %></br>
+    <%= f.text_field :initiator %>
+  </div>
+  <div class="field">
+    <%= f.label :approved %></br>
+    <%= f.check_box :approved %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add Requirement" %>
+  </div>
+<% end %>
+

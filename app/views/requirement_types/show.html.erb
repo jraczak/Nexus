@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @requirement_type.name %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%= @requirement_type.abbreviation %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @requirement_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_requirement_type_path(@requirement_type) %> |
+<%= link_to 'Back', requirement_types_path %>

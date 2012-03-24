@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  name: MyString
+  detail: MyText
+  requirement_type_id: 1
+  requirement_priority_id: 1
+  initiator: MyString
+  approved: false
+
+two:
+  project_id: 1
+  name: MyString
+  detail: MyText
+  requirement_type_id: 1
+  requirement_priority_id: 1
+  initiator: MyString
+  approved: false

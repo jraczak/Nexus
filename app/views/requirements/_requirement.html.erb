@@ -1,0 +1,17 @@
+<%= div_for requirement do %>
+  <h4>
+    <%= requirement.name  %>
+  </h4>
+  <p><b>Type: </b><%= requirement.requirement_type.name %></p>
+  <p><b>Priority: </b><%= requirement.requirement_priority.name %></p>
+  <p><b>Detail: </b><%= simple_format requirement.detail %></p>
+  <p><b>Initiator: </b><%= requirement.initiator %></p>
+  <p><b>Approved: </b>
+  <% if requirement.approved? %>
+    Yes
+  <% else %>
+    No
+  <% end %>
+  </p>
+  <%= link_to 'Edit Requirement', edit_project_requirement_path(@project, requirement)%>
+<% end %>

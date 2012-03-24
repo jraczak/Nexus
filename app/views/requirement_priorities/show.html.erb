@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @requirement_priority.name %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%= @requirement_priority.abbreviation %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @requirement_priority.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_requirement_priority_path(@requirement_priority) %> |
+<%= link_to 'Back', requirement_priorities_path %>

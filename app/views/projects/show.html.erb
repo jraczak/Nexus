@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Project Services:</b>
+  <% @project.project_services.each do |project_service| %>
+    <%= project_service.name %> -
+  <% end %>
+</p>
+
+<p>
+  <b>Project Staff:</b>
+  <% @project.users.each do |user| %>
+    <%= user.full_name %> -
+  <% end %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @project.end_date %>
+</p>
+
+<p>
+  <b>Requirements Approved:</b>
+  <%= @project.requirements_approved %>%
+</p>
+
+<div id="requirements_display">
+<h3>Project Requirements</h3>
+  <%= render @project.requirements %>
+</div>
+
+<div id="requirements_module">
+<h3>Add New Requirement</h3>
+<%= render :file => "requirements/new" %>
+</div>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

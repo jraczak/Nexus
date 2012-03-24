@@ -1,0 +1,23 @@
+<h1>Listing project_services</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project_services.each do |project_service| %>
+  <tr>
+    <td><%= project_service.name %></td>
+    <td><%= link_to 'Show', project_service %></td>
+    <td><%= link_to 'Edit', edit_project_service_path(project_service) %></td>
+    <td><%= link_to 'Destroy', project_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project service', new_project_service_path %>

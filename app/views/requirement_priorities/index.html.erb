@@ -1,0 +1,27 @@
+<h1>Listing requirement_priorities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Abbreviation</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @requirement_priorities.each do |requirement_priority| %>
+  <tr>
+    <td><%= requirement_priority.name %></td>
+    <td><%= requirement_priority.abbreviation %></td>
+    <td><%= requirement_priority.description %></td>
+    <td><%= link_to 'Show', requirement_priority %></td>
+    <td><%= link_to 'Edit', edit_requirement_priority_path(requirement_priority) %></td>
+    <td><%= link_to 'Destroy', requirement_priority, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Requirement priority', new_requirement_priority_path %>
